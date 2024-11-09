@@ -1,0 +1,12 @@
+# Git
+.git
+.gitignore
+
+# Environments
+.vscode
+
+# Python cache
+__pycache__/
+
+# PostgreSQL Data
+__data__/ 
