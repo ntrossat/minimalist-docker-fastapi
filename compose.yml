@@ -23,7 +23,8 @@ services:
     volumes:
       - .:/app
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
         
   postgres:
     image: postgres
@@ -32,4 +33,9 @@ services:
       - 5432:5432
     volumes:
       - ./core/postgres/__data__:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      interval: 1s
+      timeout: 1s
+      retries: 10
     restart: unless-stopped
