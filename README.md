@@ -1,6 +1,6 @@
 ## Minimalist FastAPI Template
 
-This repository provides a simple and minimalist template to quickly build async FastAPI applications.
+This repository provides a simple and minimalist template to quickly build async FastAPI microservices.
 
 ## Features
 
