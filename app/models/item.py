@@ -1,8 +1,7 @@
 from datetime import datetime
-from typing import List
 
 
-from sqlmodel import SQLModel, Field, select, UniqueConstraint
+from sqlmodel import SQLModel, Field, select
 from sqlmodel.ext.asyncio.session import AsyncSession
 
 
@@ -17,7 +16,6 @@ class ItemModel(ItemCreate):
 
 
 class Item(ItemModel, table=True):
-
     @staticmethod
     async def get_all(session: AsyncSession) -> list[ItemModel]:
         response = await session.exec(select(Item))

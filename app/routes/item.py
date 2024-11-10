@@ -1,5 +1,4 @@
-from datetime import datetime
-from typing import List, Any
+from typing import List
 
 from fastapi import APIRouter, HTTPException, Depends
 
@@ -38,6 +37,7 @@ async def create_item(
     return await Item.create(item, session)
 
 
+# TODO Fix Timestamp issue
 @router.put("/{id}", response_model=Item)
 async def update_item(
     id: int,
