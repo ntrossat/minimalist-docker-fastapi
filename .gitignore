@@ -2,7 +2,8 @@
 .env
 .vscode
 
-# Python cache
+# Python
+.venv/
 __pycache__/
 
 # PostgreSQL Data

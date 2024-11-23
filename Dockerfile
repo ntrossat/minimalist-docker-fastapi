@@ -9,16 +9,16 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 
 # Update package managers of the container
-RUN pip install --upgrade pip poetry
+RUN pip install --upgrade pip uv
 
 # Install dependencies
-COPY pyproject.toml .
-RUN poetry install
+COPY pyproject.toml uv.lock ./
+RUN uv sync --frozen --no-cache
 
 # Apply migration to DB
 FROM dependencies AS alembic
-CMD ["poetry", "run", "alembic", "upgrade", "head"]
+CMD ["uv", "run", "alembic", "upgrade", "head"]
 
 # Launch FastAPI
 FROM dependencies AS fastapi
-CMD ["poetry", "run", "fastapi", "dev", "app/main.py", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["uv", "run", "fastapi", "dev", "app/main.py", "--host", "0.0.0.0", "--port", "8000", "--reload"]

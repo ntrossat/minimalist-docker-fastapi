@@ -8,7 +8,7 @@ This repository provides a simple and minimalist template to quickly build async
 - **Docker** for building and running the application
 - **PostgreSQL** to host your data
 - **SQLModel** to interact with you DB
-- **Poetry** for dependencies
+- **uv** for dependencies
 
 
 ## Getting Started
