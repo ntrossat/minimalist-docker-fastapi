@@ -38,7 +38,6 @@ async def create_item(
     return await ItemRepository.save(session, item)
 
 
-# TODO Fix Timestamp issue
 @router.put("/{id}", response_model=Item)
 async def update_item(
     id: int,
