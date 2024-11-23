@@ -9,7 +9,7 @@ app = FastAPI()
 @app.get("/")
 def read_root() -> MessageResponse:
 
-    return {"message": "Hello World!"}
+    return MessageResponse(message="Hello World!")
 
 
 app.include_router(item.router, prefix="/items", tags=["Items"])
