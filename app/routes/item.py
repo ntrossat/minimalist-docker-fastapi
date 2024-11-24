@@ -11,7 +11,6 @@ router = APIRouter()
 
 @router.get("/", response_model=list[Item])
 async def get_items(
-    repository: ItemRepository = Depends(get_session),
     session: AsyncSession = Depends(get_session),
 ) -> list[Item]:
     """Get all items."""
