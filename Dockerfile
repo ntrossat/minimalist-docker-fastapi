@@ -13,7 +13,7 @@ RUN pip install --upgrade pip uv
 
 # Install dependencies
 COPY pyproject.toml uv.lock ./
-RUN uv sync --frozen --no-cache
+RUN uv sync --frozen --no-cache --link-mode=copy
 
 # Apply migration to DB
 FROM dependencies AS alembic
