@@ -1,4 +1,4 @@
-from datetime import datetime
+import uuid
 
 from sqlmodel import SQLModel, Field
 
@@ -8,6 +8,4 @@ class ItemInput(SQLModel):
 
 
 class Item(ItemInput, table=True):
-    id: int | None = Field(default=None, nullable=False, primary_key=True)
-    created_at: datetime = Field(default_factory=lambda: datetime.now())
-    updated_at: datetime = Field(default_factory=lambda: datetime.now())
+    id: uuid.UUID | None = Field(default_factory=uuid.uuid4, primary_key=True)

@@ -2,17 +2,17 @@
 
 # Generate a new revision
 ```bash
-poetry run alembic revision --autogenerate -m "Update DB"
+uv run alembic revision --autogenerate -m "Update DB"
 ```
 
 # Updagre to the latest revision
 ```bash
-poetry run alembic upgrade head
+uv run alembic upgrade head
 ```
 
 # Revert one revision
 ```bash
-poetry run alembic downgrade -1
+uv run alembic downgrade -1
 ```
 
 

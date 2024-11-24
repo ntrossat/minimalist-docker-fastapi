@@ -1,9 +1,10 @@
+import uuid
+
 from fastapi import APIRouter, HTTPException, Depends
 
 from core.postgres.db import get_session, AsyncSession
-from app.models.item import Item, ItemInput
-from app.models.response import MessageResponse
-from app.repositories.item import ItemRepository
+from app.models import Item, ItemInput, MessageResponse
+from app.repositories import ItemRepository
 
 router = APIRouter()
 
@@ -19,7 +20,7 @@ async def get_items(
 
 @router.get("/{id}", response_model=Item)
 async def get_item(
-    id: int,
+    id: uuid.UUID,
     session: AsyncSession = Depends(get_session),
 ) -> Item:
     """Get item by ID."""
@@ -40,7 +41,7 @@ async def create_item(
 
 @router.put("/{id}", response_model=Item)
 async def update_item(
-    id: int,
+    id: uuid.UUID,
     item: ItemInput,
     session: AsyncSession = Depends(get_session),
 ) -> Item:
@@ -61,7 +62,7 @@ async def update_item(
 
 @router.delete("/{id}")
 async def delete_item(
-    id: int,
+    id: uuid.UUID,
     session: AsyncSession = Depends(get_session),
 ) -> MessageResponse:
     """

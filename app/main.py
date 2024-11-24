@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from app.models.response import MessageResponse
+from app.models import MessageResponse
 from app.routes import item
 
 app = FastAPI()
