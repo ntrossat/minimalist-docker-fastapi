@@ -15,7 +15,7 @@ This repository provides a simple and minimalist template to quickly build async
 
 1. Install repository:
 ```bash
-git clone git@github.com:ntrossat/minimalist-fastapi.git
+git clone git@github.com:ntrossat/minimalist-docker-fastapi.git
 ```
 
 2. Open the folder:
